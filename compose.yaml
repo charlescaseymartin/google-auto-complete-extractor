@@ -1,0 +1,25 @@
+version: '3'
+services:
+  selenium:
+    image: selenium/standalone-firefox
+    shm_size: '2gb'
+    environment:
+      - SE_NODE_SESSION_TIMEOUT=1800
+      - SCREEN_WIDTH=1920
+      - SCREEN_HEIGHT=1080
+    ports:
+      - 4444:4444
+    networks:
+      - auto-complete-extract
+
+  scrapper:
+    build: .
+    depends_on:
+      - selenium
+    networks:
+      - auto-complete-extract
+    volumes:
+      - ./data:/scraper/data
+
+networks:
+  auto-complete-extract:

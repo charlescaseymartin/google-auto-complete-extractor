@@ -1,6 +1,5 @@
 from selenium.webdriver import Firefox
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
 from string import ascii_lowercase
 from common.utils import save_results_to_file

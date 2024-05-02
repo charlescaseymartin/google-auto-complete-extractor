@@ -31,4 +31,7 @@ if __name__ == '__main__':
     keyword_args = args.keywords
     keyword_file_arg = args.filename[0] if args.filename and len(args.filename) > 0 else None
     output_file_arg = args.output[0] if args.output and len(args.output) > 0 else None
+    if keyword_args is None and keyword_file_arg is None:
+        parser.print_help()
+        sys.exit(1)
     print(f'ARGS:\nkeywords: {keyword_args}\nkeyword file: {keyword_file_arg}\noutput file: {output_file_arg}')

@@ -1,6 +1,5 @@
 FROM --platform=linux/amd64 python:3.10-alpine
-RUN apk add --no-cache --upgrade bash curl jq
 WORKDIR /scraper
-COPY . .
+COPY ./main.py ./requirements.txt .
 RUN pip install -r ./requirements.txt
-CMD ["python", "./main.py", "-k", "./data/keywords.txt"]
+ENTRYPOINT ["python", "./main.py"]
